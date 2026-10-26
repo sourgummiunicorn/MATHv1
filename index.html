@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHSAT Math Practice</title>
+
+<!-- Fonts: Bricolage Grotesque for headings, Atkinson Hyperlegible (designed for readability) for body text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+
+<!-- KaTeX renders the math (fractions, exponents, roots). Needs an internet connection. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot" aria-hidden="true"></span>SHSAT Math</div>
+    <div class="stats quiz-only">
+      <span class="stat streak" id="streak" title="Correct answers in a row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#e58a00" aria-hidden="true"><path d="M12 2c1 4 5 5.5 5 11a5 5 0 0 1-10 0c0-2.5 1.2-4 2.5-5 .2 2 1 3 2 3 0-3-1-6 .5-9z"/></svg>
+        <b id="streakNum">0</b>
+      </span>
+      <span class="stat">Score <b id="scoreNum">0</b></span>
+    </div>
+  </div>
+  <div class="wrap quiz-only"><div class="progress" role="progressbar" aria-label="Test progress" aria-valuemin="0" aria-valuemax="100" id="progressBar"><div id="progressFill"></div></div></div>
+</header>
+
+<main class="wrap">
+
+  <!-- START SCREEN -->
+  <section class="screen on" id="screenStart">
+    <div class="card hero">
+      <div class="eyebrow">Grade 9 · Practice set</div>
+      <h1>SHSAT Math, <em>one question at a time.</em></h1>
+      <p class="lead">Work through each problem, check your answer, and see how to solve the ones that trip you up. Questions come in a new order every time.</p>
+
+      <div class="eyebrow" style="margin-bottom:4px">Choose your questions</div>
+      <div class="sets" id="sets"></div>
+
+      <ul class="rules">
+        <li><span class="n">1</span><span>Pick an answer to lock it in. You can't change it after you submit, so take your time.</span></li>
+        <li><span class="n">2</span><span>If you miss one, you'll see the correct answer and a worked solution right away.</span></li>
+        <li><span class="n">3</span><span>At the end, <b>Try Again</b> gives you another shot at only the questions you missed.</span></li>
+      </ul>
+      <button class="btn btn-primary btn-wide" id="startBtn">Start practice</button>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section class="screen" id="screenQuiz">
+    <article class="card" id="qCard" aria-live="polite"></article>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section class="screen" id="screenResults">
+    <div class="card" id="resultsCard"></div>
+  </section>
+</main>
+
+<!-- Load order matters: questions first, then the game engine, then pictures -->
+<script src="questions.js"></script>
+<script src="app.js"></script>
+<script src="figures.js"></script>
+</body>
+</html>
